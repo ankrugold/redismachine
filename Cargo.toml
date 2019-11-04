@@ -1,0 +1,11 @@
+[package]
+name = "prj1"
+version = "0.1.0"
+authors = ["admi"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+redis-module = { version="0.5.0", features = ["experimental-api"]}
