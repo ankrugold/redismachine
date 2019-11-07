@@ -1,5 +1,5 @@
 [package]
-name = "prj1"
+name = "redismachine"
 version = "0.1.0"
 authors = ["admi"]
 edition = "2018"

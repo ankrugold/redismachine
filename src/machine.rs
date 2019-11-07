@@ -38,9 +38,16 @@ impl SMachine {
 
     pub fn on_event(&mut self, event: Event) -> Action {
         let option = self.transitions.get(SMachine::key(self.state.clone(), event).as_str());
-        let trans = option.unwrap().clone();
-        self.state=trans.state.clone();
-        trans.action.clone()
+        match option {
+            Some(trans)=>{
+                let trans = option.unwrap().clone();
+                self.state=trans.state.clone();
+                trans.action.clone()
+            }
+            None => {
+                "".to_string()
+            }
+        }
     }
 
     fn key<'a>(start: State, event: Event) -> String {
