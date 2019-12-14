@@ -6,9 +6,9 @@ statemachine commands implemented in redis using rust , this module use redismod
 
 ## usage ##
 ### build ###
-> cargo build --release
+`cargo build --release`
 start redis-server like (or add module to redis conf)
->redis-server --loadmodule ./target/release/libredismachine.so
+`redis-server --loadmodule ./target/release/libredismachine.so`
 
 ### commands ###
 
