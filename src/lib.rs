@@ -6,9 +6,8 @@ use redis_module::{Context, NextArg, RedisError, RedisResult, REDIS_OK};
 use std::os::raw::c_void;
 use crate::machine::SMachine;
 use std::collections::HashMap;
+
 pub mod machine;
-
-
 
 
 static SM_REDIS_TYPE: RedisType = RedisType::new(
@@ -21,7 +20,6 @@ static SM_REDIS_TYPE: RedisType = RedisType::new(
         aof_rewrite: None,
         free: Some(machine::Free),
 
-        // Currently unused by Redis
         mem_usage: None,
         digest: None,
 

@@ -71,6 +71,7 @@ impl SMachine {
     }
 }
 
+//redis specific code to save and load the machine
 
 #[no_mangle]
 pub unsafe extern "C" fn RedisMachineRdbSave(rdb: *mut raw::RedisModuleIO, value: *mut c_void) {
