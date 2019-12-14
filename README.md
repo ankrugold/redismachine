@@ -12,6 +12,6 @@ start redis-server like (or add module to redis conf)
 
 ### commands ###
 
-
+![COMMANDS](docs/commands.png)
 
  
