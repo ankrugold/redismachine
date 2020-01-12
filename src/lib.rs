@@ -3,9 +3,6 @@ extern crate redis_module;
 
 use redis_module::native_types::RedisType;
 use redis_module::{Context, NextArg, RedisError, RedisResult, REDIS_OK};
-use std::os::raw::c_void;
-use crate::machine::SMachine;
-use std::collections::HashMap;
 
 pub mod machine;
 
@@ -53,11 +50,10 @@ fn sm_get(ctx: &Context, args: Vec<String>) -> RedisResult {
     let mut args = args.into_iter().skip(1);
     let name = args.next_string()?;
     ctx.log_debug(format!("key: {}", name).as_str());
-    let key = ctx.open_key_writable(&name);
-
+    let key = ctx.open_key(&name);
     match key.get_value::<machine::SMachine>(&SM_REDIS_TYPE)? {
         Some(value) => {
-            let state = value.get_state();
+            let state = value.state.as_str();
             ctx.log_debug(format!("state: {}", state).as_str());
             Ok(state.into())
         }
